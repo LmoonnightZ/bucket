@@ -2,13 +2,34 @@ import React from 'react';
 
 class UserAdd extends React.Component {
 
-
+    constructor(){
+        super();
+        this.state={
+            form: {
+                name:{
+                    valid:false,
+                    value:'',
+                    error:''
+                },
+                age:{
+                    valid:false,
+                    value:0,
+                    error:''
+                },
+                gender:{
+                    valid:false,
+                    value:'',
+                    error:''
+                }
+            }
+        }
+    }
 
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        const {form: {name, age, gender}, formValid} = this.props;
-        if (!formValid) {
+        const {form: {name, age, gender}} = this.state;
+        if (!name.valid || !age.valid || !gender.valid) {
             alert('请填写正确的信息后重试');
             return;
         }
@@ -49,7 +70,7 @@ class UserAdd extends React.Component {
         if (type === 'number') {
             value = +value;
         }
-        const {form: {name, age, gender}, onFormChange} = this.props;
+        const {form}=this.state;
         const newFildObj={value,valid:true,error:''};
         switch (field){
             case 'name':{
