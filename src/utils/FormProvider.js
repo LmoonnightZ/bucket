@@ -1,6 +1,6 @@
 import React from 'react';
 
-function formProvider(fields) {
+function FormProvider(fields) {
     return function (Comp) {
         const initialFormState = {};
         for (const key in fields) {
@@ -13,7 +13,7 @@ function formProvider(fields) {
             constructor(props){
                 super(props);
                 this.state = {
-                    form: {...},
+                    form: initialFormState,
                     formValid: false
                 };
                 this.handleValueChange = this.handleValueChange.bind(this);
@@ -55,4 +55,4 @@ function formProvider(fields) {
         return FormComponent;
     }
 }
-export default formProvider;
+export default FormProvider;
