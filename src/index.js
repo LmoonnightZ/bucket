@@ -5,14 +5,19 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import UserAddPage from './pages/UserAdd';
 import HomePage from './pages/Home';
 import UserListPage from './pages/UserList';
+
 const hashHistory = createBrowserHistory();
+const HomeLayout = ({ match }) => (
+    <div>
+        <Route exact path={`${match.url}/`} component={HomePage}/>
+        <Route  path={`${match.url}user/add`} component={UserAddPage}/>
+        <Route  path={`${match.url}user/list`} component={UserListPage}/>
+    </div>
+)
+
 
 ReactDOM.render((
     <Router history={hashHistory}>
-       <div>
-           <Route path="/" exact  component={HomePage}/>
-           <Route path="/user/add" component={UserAddPage}/>
-           <Route path="/user/list" component={UserListPage}/>
-       </div>
+        <Route path="/" component={HomeLayout}/>
     </Router>
 ), document.getElementById('app'));
