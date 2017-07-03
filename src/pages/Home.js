@@ -12,6 +12,8 @@ class Home extends React.Component {
                 </header>
 
                 <main>
+                    <Link to="/user/list">用户列表</Link>
+                    <br/>
                     <Link to="/user/add">添加用户</Link>
                 </main>
             </div>
