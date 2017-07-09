@@ -25,8 +25,8 @@ module.exports = {
                     presets : ['react' , 'es2015','stage-1'],
                     plugins: [
                         ["import", { libraryName: "antd", style: true }] // `style: true` 会加载 less 文件
-                     /*   ["import", { libraryName: "react", style: true }],
-                        ["import", { libraryName: "react-dom", style: true }],*/
+                        /*   ["import", { libraryName: "react", style: true }],
+                         ["import", { libraryName: "react-dom", style: true }],*/
                     ]
                 }
             }
